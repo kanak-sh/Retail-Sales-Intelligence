@@ -13,7 +13,7 @@ Important Columns:
 - customer_zip_code_prefix
 
 Possible Cleaning:
-- Conver zip codes
+- Not required
 
 ## olist_geolocation_dataset
 
@@ -34,8 +34,11 @@ Possible Cleaning:
 Purpose:
 Stores order item summary.
 
+Primary Key:
+order_item_id
+order_id (composite)
+
 Foreign Key:
-Order_id
 product_id
 seller_id
 
@@ -52,6 +55,10 @@ Possible Cleaning:
 
 Purpose:
 Stores payment details
+
+Primary Key:
+payment_sequential
+order_id (composite)
 
 Foreign Key:
 order_id
@@ -107,7 +114,7 @@ Possible Cleaning:
 ## olist_products_dataset
 
 Purpose:
-Stores product description.
+Stores product description/catalog.
 
 Primary Key:
 Product_id
@@ -117,7 +124,7 @@ Important Columns:
 
 Possible Cleaning:
 - Missing product name, name length, description length, photo qty
-- convert product weight, height, lenth, width
+- convert product name length, description length, photo quantity
 
 ## olist_sellers_dataset
 
@@ -138,8 +145,8 @@ Possible cleaning:
 Purpose:
 Stores english translation of product names
 
-Foreign key:
-Product_category_name
+Primary Key:
+product_category_name
 
 Important Columns:
 - product_category_name_english
